@@ -21,6 +21,16 @@ def sayHello():
     print "----> The hello function was called"
     
 
+def parseMessage(command):
+    print "parsing message..."
+    # removing the word "message" (8chars)
+    keyValuePair = command[8:len(command)]
+
+    dashPosition = keyValuePair.index('-')
+    hash = keyValuePair[dashPosition+1:len(keyValuePair)]
+    print "the hash is... " + str(hash)
+
+
 # sample parser function. The job of this function is to take some input
 # data and search to see if a command is present in the text. If it finds a 
 # command it will then need to extract the command.
@@ -44,6 +54,8 @@ def parseInput(data):
         # to call the sayHello() function.
         if "hello" in command:
             sayHello()
+        elif "message" in command:
+            parseMessage(command)
         
         
     
