@@ -21,6 +21,9 @@ def sayHello():
     print "----> The hello function was called"
     
 
+def ping():
+    print "pong"
+
 def parseMessage(command):
     print "parsing message..."
     # removing the word "message" (8chars)
@@ -28,6 +31,9 @@ def parseMessage(command):
 
     dashPosition = keyValuePair.index('-')
     hash = keyValuePair[dashPosition+1:len(keyValuePair)]
+    message = keyValuePair[0:dashPosition]
+
+    print "the message is..." + str(message)
     print "the hash is... " + str(hash)
 
 
@@ -56,6 +62,8 @@ def parseInput(data):
             sayHello()
         elif "message" in command:
             parseMessage(command)
+        elif "ping" in command:
+            ping()
         
         
     
